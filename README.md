@@ -7,6 +7,6 @@ If you choose not to contribute towards this, then you will loose out on marks a
 Wise - Book a Trip
 Gurj - Search Journey 
 Alex - 
-Mustafa - 
+Mustafa - Register
 Valmar -
 Aqif - Pay for a Trip
