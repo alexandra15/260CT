@@ -5,7 +5,7 @@ This will allow us to debug easier.
 If you choose not to contribute towards this, then you will loose out on marks and it will not mark us down. 
 
 •	Wise - Book a Trip
-•	Gurj - Search Journey 
+•	Gurj - Edit Booking 
 •	Alex - Verify Booking
 •	Mustafa - Register
 •	Valmar - Check Coach Journey 
