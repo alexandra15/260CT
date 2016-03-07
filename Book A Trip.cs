@@ -1,6 +1,6 @@
 class BookTrip
 {
-  private int refNo;
+  private int refNo = -1;
   private string journeyDestination;
   private int journeyCost;
   //need to find a date and time type for these
