@@ -11,6 +11,7 @@ import java.awt.*;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -35,6 +36,7 @@ public class OperatorGUI extends javax.swing.JFrame {
         EditTripFrame.setVisible(false);
         BookingInfoFrame.setVisible(false);
         BookingReportFrame.setVisible(false);
+        RegisterMemberFrame.setVisible(false);
     }
 
     /**
@@ -56,6 +58,9 @@ public class OperatorGUI extends javax.swing.JFrame {
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
+        buttonGroup3 = new javax.swing.ButtonGroup();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         BookingIDField = new javax.swing.JTextField();
@@ -107,6 +112,25 @@ public class OperatorGUI extends javax.swing.JFrame {
         BookingReportFrame = new javax.swing.JInternalFrame();
         jScrollPane1 = new javax.swing.JScrollPane();
         BookingReportTable = new javax.swing.JTable();
+        DayBox3 = new javax.swing.JComboBox<>();
+        jLabel27 = new javax.swing.JLabel();
+        MonthBox3 = new javax.swing.JComboBox<>();
+        YearBox3 = new javax.swing.JComboBox<>();
+        WeeklyReportBtn = new javax.swing.JButton();
+        MonthlyReportBtn = new javax.swing.JButton();
+        RegisterMemberFrame = new javax.swing.JInternalFrame();
+        MakeBookingPanel4 = new javax.swing.JPanel();
+        ConfirmBookingButton2 = new javax.swing.JButton();
+        DayBox2 = new javax.swing.JComboBox<>();
+        MonthBox2 = new javax.swing.JComboBox<>();
+        YearBox2 = new javax.swing.JComboBox<>();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        NameTextBox = new javax.swing.JTextField();
+        EmailTextBox = new javax.swing.JTextField();
+        jLabel26 = new javax.swing.JLabel();
+        ContactNumberTextBox = new javax.swing.JTextField();
 
         BookingInfoFrame1.setClosable(true);
         BookingInfoFrame1.setResizable(true);
@@ -269,12 +293,17 @@ public class OperatorGUI extends javax.swing.JFrame {
                 .addComponent(EditBookingButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(ViewBookingReport)
-                .addContainerGap(563, Short.MAX_VALUE))
+                .addContainerGap(945, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Booking", jPanel2);
 
         jButton1.setText("Register");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -290,7 +319,7 @@ public class OperatorGUI extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(53, 53, 53)
                 .addComponent(jButton1)
-                .addContainerGap(690, Short.MAX_VALUE))
+                .addContainerGap(1072, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Customer", jPanel3);
@@ -368,7 +397,7 @@ public class OperatorGUI extends javax.swing.JFrame {
                     .addComponent(DestinationBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MakeBookingPanelLayout.createSequentialGroup()
-                .addContainerGap(31, Short.MAX_VALUE)
+                .addContainerGap(71, Short.MAX_VALUE)
                 .addGroup(MakeBookingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MakeBookingPanelLayout.createSequentialGroup()
                         .addComponent(jLabel1)
@@ -409,7 +438,7 @@ public class OperatorGUI extends javax.swing.JFrame {
                 .addGroup(MakeBookingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(MemberBox)
                     .addComponent(NonMemberBox))
-                .addGap(18, 215, Short.MAX_VALUE)
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addComponent(ConfirmBookingButton)
                 .addContainerGap())
         );
@@ -438,7 +467,7 @@ public class OperatorGUI extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 643, Short.MAX_VALUE)
         );
 
         EditTripFrame.setClosable(true);
@@ -563,7 +592,7 @@ public class OperatorGUI extends javax.swing.JFrame {
                     .addComponent(NonMemberBox1))
                 .addGap(60, 60, 60)
                 .addComponent(ConfirmBookingButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 244, Short.MAX_VALUE)
                 .addComponent(DeleteBookingButton)
                 .addContainerGap())
         );
@@ -677,29 +706,192 @@ public class OperatorGUI extends javax.swing.JFrame {
 
         BookingReportTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Booking Ref.", "Departure", "Destination", "Date", "Cost (£)"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, true, false, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         BookingReportTable.setCellSelectionEnabled(true);
         jScrollPane1.setViewportView(BookingReportTable);
+        BookingReportTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+
+        DayBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        DayBox3.setToolTipText("Day");
+
+        jLabel27.setText("Enter desired date:");
+
+        MonthBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+        MonthBox3.setToolTipText("Month");
+
+        YearBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2016", "2017", "2018", "2019", "2020" }));
+        YearBox3.setToolTipText("Year");
+
+        WeeklyReportBtn.setText("View Weekly Report");
+        WeeklyReportBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                WeeklyReportBtnActionPerformed(evt);
+            }
+        });
+
+        MonthlyReportBtn.setText("View Monthly Report");
+        MonthlyReportBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MonthlyReportBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout BookingReportFrameLayout = new javax.swing.GroupLayout(BookingReportFrame.getContentPane());
         BookingReportFrame.getContentPane().setLayout(BookingReportFrameLayout);
         BookingReportFrameLayout.setHorizontalGroup(
             BookingReportFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(BookingReportFrameLayout.createSequentialGroup()
+                .addGroup(BookingReportFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(BookingReportFrameLayout.createSequentialGroup()
+                        .addGap(63, 63, 63)
+                        .addComponent(jLabel27)
+                        .addGap(40, 40, 40))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BookingReportFrameLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(WeeklyReportBtn)
+                        .addGap(18, 18, 18)))
+                .addGroup(BookingReportFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(BookingReportFrameLayout.createSequentialGroup()
+                        .addComponent(DayBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(MonthBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(YearBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(MonthlyReportBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
         BookingReportFrameLayout.setVerticalGroup(
             BookingReportFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BookingReportFrameLayout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BookingReportFrameLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(BookingReportFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(DayBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel27)
+                    .addComponent(MonthBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(YearBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(BookingReportFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(WeeklyReportBtn)
+                    .addComponent(MonthlyReportBtn))
+                .addGap(18, 30, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        RegisterMemberFrame.setClosable(true);
+        RegisterMemberFrame.setTitle("Register Member");
+        RegisterMemberFrame.setEnabled(false);
+        RegisterMemberFrame.setVisible(true);
+
+        ConfirmBookingButton2.setText("Confirm Registration");
+        ConfirmBookingButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConfirmBookingButton2ActionPerformed(evt);
+            }
+        });
+
+        DayBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        DayBox2.setToolTipText("Day");
+
+        MonthBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+        MonthBox2.setToolTipText("Month");
+
+        YearBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998" }));
+        YearBox2.setToolTipText("Year");
+
+        jLabel23.setText("Name:");
+
+        jLabel24.setText("E-mail:");
+
+        jLabel25.setText("Date of Birth:");
+
+        jLabel26.setText("Contact Number:");
+
+        javax.swing.GroupLayout MakeBookingPanel4Layout = new javax.swing.GroupLayout(MakeBookingPanel4);
+        MakeBookingPanel4.setLayout(MakeBookingPanel4Layout);
+        MakeBookingPanel4Layout.setHorizontalGroup(
+            MakeBookingPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MakeBookingPanel4Layout.createSequentialGroup()
+                .addGroup(MakeBookingPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(MakeBookingPanel4Layout.createSequentialGroup()
+                        .addGap(83, 83, 83)
+                        .addComponent(ConfirmBookingButton2))
+                    .addGroup(MakeBookingPanel4Layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addGroup(MakeBookingPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel25, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel24, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel23, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(28, 28, 28)
+                        .addGroup(MakeBookingPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(MakeBookingPanel4Layout.createSequentialGroup()
+                                .addComponent(DayBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(MonthBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(YearBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(NameTextBox)
+                            .addComponent(EmailTextBox, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(MakeBookingPanel4Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel26)
+                        .addGap(24, 24, 24)
+                        .addComponent(ContactNumberTextBox)))
+                .addContainerGap(35, Short.MAX_VALUE))
+        );
+        MakeBookingPanel4Layout.setVerticalGroup(
+            MakeBookingPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MakeBookingPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(MakeBookingPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel23)
+                    .addComponent(NameTextBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(MakeBookingPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel25)
+                    .addComponent(DayBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(MonthBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(YearBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addGroup(MakeBookingPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel24)
+                    .addComponent(EmailTextBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(MakeBookingPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel26)
+                    .addComponent(ContactNumberTextBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 207, Short.MAX_VALUE)
+                .addComponent(ConfirmBookingButton2)
+                .addGap(41, 41, 41))
+        );
+
+        javax.swing.GroupLayout RegisterMemberFrameLayout = new javax.swing.GroupLayout(RegisterMemberFrame.getContentPane());
+        RegisterMemberFrame.getContentPane().setLayout(RegisterMemberFrameLayout);
+        RegisterMemberFrameLayout.setHorizontalGroup(
+            RegisterMemberFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RegisterMemberFrameLayout.createSequentialGroup()
+                .addComponent(MakeBookingPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        RegisterMemberFrameLayout.setVerticalGroup(
+            RegisterMemberFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RegisterMemberFrameLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(MakeBookingPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -710,35 +902,42 @@ public class OperatorGUI extends javax.swing.JFrame {
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(EditTripFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(BookingInfoFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(BookaTripFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
                         .addComponent(BookingReportFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(94, 94, 94)
+                        .addComponent(RegisterMemberFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1180, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BookaTripFrame, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BookingInfoFrame, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(EditTripFrame, javax.swing.GroupLayout.Alignment.LEADING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BookingReportFrame)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(BookaTripFrame, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(BookingInfoFrame, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(EditTripFrame, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGap(26, 26, 26)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(BookingReportFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(RegisterMemberFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -921,7 +1120,7 @@ public class OperatorGUI extends javax.swing.JFrame {
         BookingReportFrame.setVisible(true);
         String url="jdbc:derby://localhost:1527/BookingSystemDB/";
         try{
-      
+            int row=0, column =0;
             ArrayList columnNames = new ArrayList();
             ArrayList data = new ArrayList();
             String username ="operator";
@@ -930,66 +1129,163 @@ public class OperatorGUI extends javax.swing.JFrame {
             String getAll = "SELECT * from BOOKING";
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(getAll); 
-            ResultSetMetaData md = rs.getMetaData();
-            int columns = md.getColumnCount();
-            BookingReportTable.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
-            BookingReportTable.setFillsViewportHeight(true);
-             JScrollPane scroll = new JScrollPane(BookingReportTable);            
-            //  Get column names
-            for (int i = 1; i <= columns; i++)
-            {
-                columnNames.add( md.getColumnName(i) );
-            }
-
-            //  Get row data
-            while (rs.next())
-            {
-                ArrayList row = new ArrayList(columns);
-
-                for (int i = 1; i <= columns; i++)
-                {
-                    row.add( rs.getObject(i) );
-                }
-
-                data.add( row );
-            }
-            for (int i = 0; i < data.size(); i++)
-            {
-                ArrayList subArray = (ArrayList)data.get(i);
-                Vector subVector = new Vector();
-                for (int j = 0; j < subArray.size(); j++)
-                {
-                    subVector.add(subArray.get(j));
-                }
-                //dataVector.add(subVector);
-            }
-/*
-        for (int i = 0; i < columnNames.size(); i++ )
-            columnNamesVector.add(columnNames.get(i))
+            DefaultTableModel ReportModel=new DefaultTableModel(0, 5);
+            BookingReportTable.setModel(ReportModel);
+            //ResultSetMetaData md = rs.getMetaData();
             
-        //  Create table with database data    
-        JTable BookingReportTable = new JTable(dataVector, columnNamesVector)
-        {
-            public Class getColumnClass(int column)
-            {
-                for (int row = 0; row < getRowCount(); row++)
-                {
-                    Object o = getValueAt(row, column);
-
-                    if (o != null)
-                    {
-                        return o.getClass();
-                    }
-                }
-
-                return Object.class;
+            //BookingReportTable.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+            //BookingReportTable.setFillsViewportHeight(true);
+            //JScrollPane scroll = new JScrollPane(BookingReportTable);
+            /*
+            scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+            scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);*/
+            HashMap<Integer,String> code_table;
+            while (rs.next()) {
+                Object rowData[][] ={{" "}};
+                ReportModel.addRow(rowData);
+                
+                column = 0;
+                int BookingRef = rs.getInt("BOOKINGREF");
+                BookingReportTable.setValueAt(BookingRef, row, column);
+                column++;
+                String Departure = rs.getString("BOOKINGDEPARTURE");
+                BookingReportTable.setValueAt(Departure, row, column);
+                column++;
+                String Destination = rs.getString("BOOKINGDESTINATION");
+                BookingReportTable.setValueAt(Destination, row, column);
+                column++;
+                String Date = rs.getString("BOOKINGDATE");
+                BookingReportTable.setValueAt(Date, row, column);
+                column++;
+                String Cost = rs.getString("BOOKINGCOST");
+                BookingReportTable.setValueAt(Cost, row, column);              
+                row++;
             }
-        }; */
+     
+  
+
         }
         catch(SQLException ex){
                JOptionPane.showMessageDialog(null, ex.toString());
             }   
     }//GEN-LAST:event_ViewBookingReportActionPerformed
+
+    private void ConfirmBookingButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmBookingButton2ActionPerformed
+        if(DestinationBox.getSelectedItem()==DepartureBox.getSelectedItem()){
+            JOptionPane.showMessageDialog(null, "The departure and destination cannot be the same!");
+        }
+        else{
+            try{
+                double cost;
+                //credentials
+                String url="jdbc:derby://localhost:1527/BookingSystemDB/";
+                String username ="operator";
+                String password = "password";
+                Connection con = DriverManager.getConnection(url, username, password);
+
+                Statement stmt = con.createStatement();
+                Random x = new Random();
+                int CustomerRef= 100000 + x.nextInt(999999);
+                String Query = "INSERT INTO CUSTOMER(CUSTOMERID,CUSTOMERNAME,CUSTOMEREMAIL,CUSTOMERDATEOFBIRTH,CONTACTNUMBER) VALUES("+ CustomerRef +", '"+ NameTextBox.getText() +"', '"+ EmailTextBox.getText() +"','" + YearBox2.getSelectedItem() +"-"+ MonthBox2.getSelectedItem() +"-"+ DayBox2.getSelectedItem() +"',"+ContactNumberTextBox.getText()+")";
+                stmt.execute(Query);
+                JOptionPane.showMessageDialog(null, "Customer successfully added to the database.");
+                BookaTripFrame.setVisible(false);
+            }
+            catch(SQLException ex){
+                JOptionPane.showMessageDialog(null, ex.toString());
+            }
+
+        }
+    }//GEN-LAST:event_ConfirmBookingButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        RegisterMemberFrame.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void WeeklyReportBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WeeklyReportBtnActionPerformed
+        String url="jdbc:derby://localhost:1527/BookingSystemDB/";
+        try{
+            int row=0, column =0;
+            String username ="operator";
+            String password = "password";
+            Connection con = DriverManager.getConnection(url, username, password);
+            int temp = DayBox3.getSelectedIndex();
+            String getAll = "SELECT * from BOOKING WHERE(BOOKINGDATE>='"+YearBox3.getSelectedItem() +"-"+ MonthBox3.getSelectedItem() +"-"+ DayBox3.getSelectedItem() +"' AND BOOKINGDATE<='"+YearBox3.getSelectedItem() +"-"+ MonthBox3.getSelectedItem() +"-"+ DayBox3.getItemAt(temp+6) +"')" ;
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(getAll); 
+            DefaultTableModel ReportModel=new DefaultTableModel(0, 5);
+            BookingReportTable.setModel(ReportModel);
+            while (rs.next()) {
+                Object rowData[][] ={{" "}};
+                ReportModel.addRow(rowData);
+                
+                column = 0;
+                int BookingRef = rs.getInt("BOOKINGREF");
+                BookingReportTable.setValueAt(BookingRef, row, column);
+                column++;
+                String Departure = rs.getString("BOOKINGDEPARTURE");
+                BookingReportTable.setValueAt(Departure, row, column);
+                column++;
+                String Destination = rs.getString("BOOKINGDESTINATION");
+                BookingReportTable.setValueAt(Destination, row, column);
+                column++;
+                String Date = rs.getString("BOOKINGDATE");
+                BookingReportTable.setValueAt(Date, row, column);
+                column++;
+                String Cost = rs.getString("BOOKINGCOST");
+                BookingReportTable.setValueAt(Cost, row, column);              
+                row++;
+            }
+            JOptionPane.showMessageDialog(null,"Report successfully updated!");
+  
+
+        }
+        catch(SQLException ex){
+               JOptionPane.showMessageDialog(null, ex.toString());
+            }   
+    }//GEN-LAST:event_WeeklyReportBtnActionPerformed
+
+    private void MonthlyReportBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MonthlyReportBtnActionPerformed
+        String url="jdbc:derby://localhost:1527/BookingSystemDB/";
+        try{
+            int row=0, column =0;
+            String username ="operator";
+            String password = "password";
+            Connection con = DriverManager.getConnection(url, username, password);
+            String getAll = "SELECT * from BOOKING WHERE(BOOKINGDATE>='"+YearBox3.getSelectedItem() +"-"+ MonthBox3.getSelectedItem() +"-"+ "01" +"' AND BOOKINGDATE<='"+YearBox3.getSelectedItem() +"-"+ MonthBox3.getSelectedItem() +"-"+ "31" +"')" ;
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(getAll); 
+            DefaultTableModel ReportModel=new DefaultTableModel(0, 5);
+            BookingReportTable.setModel(ReportModel);
+            while (rs.next()) {
+                Object rowData[][] ={{" "}};
+                ReportModel.addRow(rowData);
+                
+                column = 0;
+                int BookingRef = rs.getInt("BOOKINGREF");
+                BookingReportTable.setValueAt(BookingRef, row, column);
+                column++;
+                String Departure = rs.getString("BOOKINGDEPARTURE");
+                BookingReportTable.setValueAt(Departure, row, column);
+                column++;
+                String Destination = rs.getString("BOOKINGDESTINATION");
+                BookingReportTable.setValueAt(Destination, row, column);
+                column++;
+                String Date = rs.getString("BOOKINGDATE");
+                BookingReportTable.setValueAt(Date, row, column);
+                column++;
+                String Cost = rs.getString("BOOKINGCOST");
+                BookingReportTable.setValueAt(Cost, row, column);              
+                row++;
+            }
+            JOptionPane.showMessageDialog(null,"Report successfully updated!");
+  
+
+        }
+        catch(SQLException ex){
+               JOptionPane.showMessageDialog(null, ex.toString());
+            }   
+    }//GEN-LAST:event_MonthlyReportBtnActionPerformed
 
     
         private void VerifyBookingButtonActionPerformed(java.awt.event.ActionEvent evt) {
@@ -1077,8 +1373,12 @@ public class OperatorGUI extends javax.swing.JFrame {
     private javax.swing.JTable BookingReportTable;
     private javax.swing.JButton ConfirmBookingButton;
     private javax.swing.JButton ConfirmBookingButton1;
+    private javax.swing.JButton ConfirmBookingButton2;
+    private javax.swing.JTextField ContactNumberTextBox;
     private javax.swing.JComboBox<String> DayBox;
     private javax.swing.JComboBox<String> DayBox1;
+    private javax.swing.JComboBox<String> DayBox2;
+    private javax.swing.JComboBox<String> DayBox3;
     private javax.swing.JButton DeleteBookingButton;
     private javax.swing.JComboBox<String> DepartureBox;
     private javax.swing.JComboBox<String> DepartureBox1;
@@ -1086,20 +1386,33 @@ public class OperatorGUI extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> DestinationBox1;
     private javax.swing.JButton EditBookingButton;
     private javax.swing.JInternalFrame EditTripFrame;
+    private javax.swing.JTextField EmailTextBox;
     private javax.swing.JPanel MakeBookingPanel;
     private javax.swing.JPanel MakeBookingPanel1;
     private javax.swing.JPanel MakeBookingPanel2;
     private javax.swing.JPanel MakeBookingPanel3;
+    private javax.swing.JPanel MakeBookingPanel4;
     private javax.swing.JCheckBox MemberBox;
     private javax.swing.JCheckBox MemberBox1;
     private javax.swing.JComboBox<String> MonthBox;
     private javax.swing.JComboBox<String> MonthBox1;
+    private javax.swing.JComboBox<String> MonthBox2;
+    private javax.swing.JComboBox<String> MonthBox3;
+    private javax.swing.JButton MonthlyReportBtn;
+    private javax.swing.JTextField NameTextBox;
     private javax.swing.JCheckBox NonMemberBox;
     private javax.swing.JCheckBox NonMemberBox1;
+    private javax.swing.JInternalFrame RegisterMemberFrame;
     private javax.swing.JButton VerifyBookingButton;
     private javax.swing.JButton ViewBookingReport;
+    private javax.swing.JButton WeeklyReportBtn;
     private javax.swing.JComboBox<String> YearBox;
     private javax.swing.JComboBox<String> YearBox1;
+    private javax.swing.JComboBox<String> YearBox2;
+    private javax.swing.JComboBox<String> YearBox3;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1116,6 +1429,11 @@ public class OperatorGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
